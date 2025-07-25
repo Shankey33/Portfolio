@@ -162,7 +162,19 @@ body{
     background: var(--darker-bg);
 }
 
+.project{
+    padding: 5rem 5%;
+    background: var(--darker-bg); 
+}
+
 .skills-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.project-grid{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
@@ -176,6 +188,45 @@ body{
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
+}
+.project-card img{
+    width: 40%;
+    height: 50%;
+    border-radius: 10%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+.project-card{
+    padding: 2rem;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    max-width: 400px;
+}
+
+.project-card h3{
+    font-size: 1.5rem;
+    margin-top: -1rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent);
+}
+
+.project-card p{
+    font-size: 1rem;
+    color: var(--text);
+    margin-top: 0.5rem;
+}
+
+.project-card:hover{
+    transform: translateY(-10px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px var(--accent-glow);
+    cursor: pointer;
 }
 
 .skill-card:hover{
@@ -242,5 +293,4 @@ footer{
         padding-left: 2rem;
     }
 }
-
 
