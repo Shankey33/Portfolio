@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
 //Project Link Open
 
 document.querySelector('#project-01').addEventListener('click', function() {
-    window.open("./Projects/Calculator/calculator.html", "_blank");
+    window.open("./Projects/Calculator/Calculator.html", "_blank");
 });
 
 document.querySelector("#project-02").addEventListener('click', function() {
