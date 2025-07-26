@@ -24,4 +24,8 @@ document.querySelector('#project-01').addEventListener('click', function() {
     window.open("./Projects/Calculator/calculator.html", "_blank");
 });
 
+document.querySelector("#project-02").addEventListener('click', function() {
+    window.open("./Projects/Weather-App/Weather.html", "_blank");
+});
+
 

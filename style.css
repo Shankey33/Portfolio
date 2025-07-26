@@ -196,6 +196,11 @@ body{
     object-fit: cover;
     margin-bottom: 1rem;
 }
+
+.project-card #project-02 img{
+    object-fit: contain;
+}
+
 .project-card{
     padding: 2rem;
     border-radius: 25px;

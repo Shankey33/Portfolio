@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Weather || Portfolio project</title>
+    <Style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            color: #ebfffc;
+        }
+
+        body{
+            background: #222;
+
+        }
+
+        .card{
+            width: 90%;
+            max-width: 470px;
+            background: linear-gradient(135deg, #51d87c, #9db642); ;
+            margin: 10% 35%;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: #c6f450 0px 0px 5px 0px;    
+            text-align: center;
+        }
+
+        .search{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .search input{
+            border: 0;
+            outline: 0;
+            background: #ebfffc;
+            color: #555;
+            padding: 10px 25px;
+            height: 60px;
+            border-radius: 30px;
+            flex: 1;
+            margin-right: 16px;
+            font-size: 18px;
+        }
+
+        .search button{
+            border: 0;
+            outline: 0;
+            background: #ebfffc;
+            border-radius: 50px;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+        }
+
+        .search button img{
+            width: 16px;
+            margin-top: 5px;
+        }
+
+        .weather-icon{
+            width: 170px;
+            margin-top: 30px;
+        }
+
+        .weather h1{
+            font-size: 80px;
+            font-weight: 500;
+        }
+        
+        .weather h2{
+            font-size: 45px;
+            font-weight: 400;
+            margin-top: -10px;
+        }
+
+        .details{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            margin-top: 50px;
+        }
+
+        .col{
+            display: flex;
+            align-items: center;
+            text-align: left;
+        }
+
+        .col img{
+            width: 40px;
+            margin-right: 10px;
+        }
+
+        .humidity .wind{
+            font-size: 28px;
+            margin-top: -6px;
+
+        }
+
+        .error{
+            text-align: left;
+            margin-left: 10px;
+            font-size: 14px;
+            margin-top: 10px;
+
+        }
+
+        .weather{
+            display: none;
+        }
+
+    </Style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="search">
+            <input type="text" placeholder="Search for a city..." spellcheck="false">
+            <button><img src="./images/search.png" alt="Search Icon"></button>
+        </div>
+        <div class="error">
+            <p>Invalid City Name</p>
+        </div>
+        <div class="weather">
+            <img src="./images/rain.png" alt="weather icon" class="weather-icon">
+            <h1 class="temp"></h1>
+            <h2 class="city"></h2>
+            <div class="details">
+                <div class="col">
+                    <img src="./images/humidity.png" alt="humidity icon">
+                    <div>
+                        <p class="humidity">50%</p>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="./images/wind.png" alt="wind icon">
+                    <div>
+                        <p class="wind">15km/hr</p>
+                        <p>Wind</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <script>
+        
+        const apiKey = "72f2932aba813bb1b4766179fb804868";
+        const apiUrl = "https://api.openweathermap.org/data/2.5/weather?&units=metric&q=";
+        
+        const searchInput = document.querySelector(".search input");
+        const searchButton = document.querySelector(".search button");
+        const weatherIcon = document.querySelector(".weather-icon");
+
+        document.querySelector(".error").style.display = "none";
+
+        searchButton.addEventListener("click", () =>{
+            checkWeather(searchInput.value);
+        })
+        
+        async function checkWeather(city){
+            
+            const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+
+            if(response.status === 404){
+                document.querySelector(".error").style.display = "block";
+                document.querySelector(".weather").style.display = "none";
+                return;
+            }
+
+            document.querySelector(".error").style.display = "none";
+            
+            let data = await response.json();
+            
+            console.log(data);
+
+            document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
+            document.querySelector(".city").innerHTML = data.name;
+            document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+            document.querySelector(".wind").innerHTML = data.wind.speed + "km/hr";
+
+
+            if(data.weather[0].main === "clear"){
+                weatherIcon.src = "./images/clear.png";
+            } else if(data.weather[0].main === "Clouds"){
+                weatherIcon.src = "./images/clouds.png";
+            } else if(data.weather[0].main === "Rain"){
+                weatherIcon.src = "./images/rain.png";
+            } else if(data.weather[0].main === "Drizzle"){
+                weatherIcon.src = "./images/drizzle.png";
+            } else if(data.weather[0].main === "Mist"){
+                weatherIcon.src = "./images/mist.png";
+            }
+
+            document.querySelector(".weather").style.display = "block";
+        }
+
+
+        searchInput.addEventListener("keydown", (e) =>{
+            if(e.key === "Enter"){
+                checkWeather(searchInput.value);
+            }
+        });
+
+    </script>
+
+    
+</body>
+</html>
