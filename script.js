@@ -28,4 +28,7 @@ document.querySelector("#project-02").addEventListener('click', function() {
     window.open("./Projects/Weather-App/Weather.html", "_blank");
 });
 
+document.querySelector("#project-03").addEventListener('click', function() {
+    window.open("./Projects/To-do-list/todo.html", "_blank");
+});
 
