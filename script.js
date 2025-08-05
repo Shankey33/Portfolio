@@ -28,3 +28,7 @@ document.querySelector("#project-02").addEventListener("click", function() {
     window.open("https://github.com/Shankey33/studentManagementSystem", "_blank");
 })
 
+
+document.querySelector("#project-03").addEventListener("click", function() {
+    window.open("https://github.com/Shankey33/foodcraft", "_blank");
+})
