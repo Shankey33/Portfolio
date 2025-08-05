@@ -20,15 +20,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
 //Project Link Open
 
-document.querySelector('#project-01').addEventListener('click', function() {
-    window.open("./Projects/Calculator/Calculator.html", "_blank");
-});
-
-document.querySelector("#project-02").addEventListener('click', function() {
+document.querySelector("#project-01").addEventListener('click', function() {
     window.open("./Projects/Weather-App/Weather.html", "_blank");
 });
 
-document.querySelector("#project-03").addEventListener('click', function() {
-    window.open("./Projects/To-do-list/todo.html", "_blank");
-});
+document.querySelector("#project-02").addEventListener("click", function() {
+    window.open("https://github.com/Shankey33/studentManagementSystem", "_blank");
+})
 

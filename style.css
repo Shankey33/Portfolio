@@ -190,27 +190,23 @@ body{
     backdrop-filter: blur(10px);
 }
 .project-card img{
-    width: 40%;
+    width: 50%;
     height: 50%;
-    border-radius: 10%;
     object-fit: cover;
+    border-radius: 20%;
     margin-bottom: 1rem;
-}
-
-.project-card #project-02 img{
-    object-fit: contain;
 }
 
 .project-card{
     padding: 2rem;
-    border-radius: 25px;
+    border-radius: 45px;
     background: rgba(255, 255, 255, 0.05);
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(50px);
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     max-width: 400px;
 }
 
