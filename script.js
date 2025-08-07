@@ -30,5 +30,5 @@ document.querySelector("#project-02").addEventListener("click", function() {
 
 
 document.querySelector("#project-03").addEventListener("click", function() {
-    window.open("https://github.com/Shankey33/foodcraft", "_blank");
+    window.open("https://shankey33.github.io/FoodCraft/", "_blank");
 })
